@@ -1,0 +1,23 @@
+=== Un outillage adapté
+
+////
+Concernant l'outillage autour des développements front-end (HTML, JavaScript, CSS), *https://nodejs.org/[Node.js] est devenu incontournable*.
+
+////
+
+image::img/nodejs_logo.png[Node.js, width=100%, scaledwidth=50%, align=center, link=https://nodejs.org/]
+
+////
+L'écosystème de Node.js est riche, il existe de nombreux modules permettant de réaliser des traitements sur les fichiers. Quelques modules sont spécialisés dans le lancement des traitements.
+
+////
+
+image::img/grunt_gulp_brunch.png[width=100%, scaledwidth=50%, align=center]
+
+////
+- http://gruntjs.com/[Grunt]
+- http://gulpjs.com/[Gulp]
+- http://brunch.io/[Brunch]
+
+////
+

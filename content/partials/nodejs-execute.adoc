@@ -1,0 +1,28 @@
+=== Exécuter un programme avec Node.js
+
+Une fois installé, exécuter un programme avec Node.js est trivial. Soit en utilisant l'interpréteur en lignes de commandes.
+
+```shell
+
+node
+
+> console.log('Hello World !');
+
+```
+
+Soit en exécutant un programme depuis un fichier.
+
+```js
+
+// index.js
+console.log('Hello World !');
+
+```
+
+```shell
+
+node index.js
+
+```
+
+C'est simple mais ça ne fait pas grand chose, essayons désormais de tirer partie des modules de l'éco-système de Node.js en utilisant le registre npm.

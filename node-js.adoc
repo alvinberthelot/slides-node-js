@@ -1,0 +1,42 @@
+// VARIABLES FREQUENTLY CHANGED
+:revnumber: 1.0.0
+
+// ASCIIDOCTOR VARIABLES
+:author: Alvin Berthelot
+:email: alvin.berthelot@webyousoon.com
+:source-highlighter: coderay
+:title-logo-image: image:content/img/nodejs_logo.png[width=100%, scaledwidth=65%, align=left]
+:icons: font
+:doctype: book
+:compat-mode:
+:experimental:
+:pygments-style: bw
+
+// CUSTOM VARIABLES
+:nameRepository: slides-node-js
+:urlRepository: https://github.com/alvinberthelot/slides-node-js
+
+
+= Node.js
+{author}
+
+<<<
+include::intro-license.adoc[]
+
+<<<
+include::content/partials/nodejs-init.adoc[]
+
+<<<
+== Utilisation basique de Node.js
+
+<<<
+include::content/partials/nodejs-install.adoc[]
+
+<<<
+include::content/partials/nodejs-execute.adoc[]
+
+<<<
+include::content/partials/nodejs-modules.adoc[]
+
+<<<
+include::license.adoc[]
