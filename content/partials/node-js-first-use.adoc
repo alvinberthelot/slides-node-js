@@ -1,0 +1,80 @@
+== Utilisation basique de Node.js
+
+<<<
+
+=== Installer Node.js
+
+Il existe différentes options pour installer Node.js dans un environnement, les plus populaires étant :
+
+- https://nodejs.org/en/download/[Télécharger le binaire] pour l'environnement concerné et l'installer.
+
+- Utiliser https://github.com/creationix/nvm[nvm] (Node Version Manager) pour installer les versions de Node.js souhaitées.
+
+- Utiliser https://www.docker.com/[Docker] et récupérer une https://hub.docker.com/_/node/[image officielle Node.js].
+
+Ensuite il convient de vérifier la bonne installation.
+
+```shell
+
+// Node
+node -v
+
+// npm
+npm -v
+
+```
+
+<<<
+
+=== Exécuter un programme avec Node.js
+
+Une fois installé, exécuter un programme avec Node.js est trivial. Soit en utilisant l'interpréteur en lignes de commandes.
+
+```shell
+
+node
+
+> console.log('Hello World !');
+
+```
+
+Soit en exécutant un programme depuis un fichier.
+
+```js
+
+// index.js
+console.log('Hello World !');
+
+```
+
+```shell
+
+node index.js
+
+```
+
+=== Arguments d'exécution
+
+Il est possible de passer des arguments en exécutant un programme dans Node.js.
+
+```shell
+
+node index.js Hello you
+
+```
+
+Ces arguments seront stockés dans la propriété +argv+ (tableau de valeurs) du processus +process+ accessible depuis n'importe quelle exécution.
+
+```js
+
+// index.js
+process.argv.forEach(value => { console.log(value) });
+
+// /Users/webyousoon/.nvm/versions/node/v6.9.2/bin/node
+// /Users/webyousoon/work/workspace/samples/index.js
+// Hello
+// you
+
+```
+
+WARNING: 2 arguments sont passés par défaut : le binaire d'exécution et le fichier exécuté.

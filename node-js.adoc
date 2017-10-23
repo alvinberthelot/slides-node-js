@@ -24,19 +24,21 @@
 include::intro-license.adoc[]
 
 <<<
-include::content/partials/nodejs-init.adoc[]
+include::content/partials/node-js-init.adoc[]
 
 <<<
-== Utilisation basique de Node.js
+include::content/partials/node-js-first-use.adoc[]
 
 <<<
-include::content/partials/nodejs-install.adoc[]
+include::content/partials/handson/node-js-basics.adoc[]
 
 <<<
-include::content/partials/nodejs-execute.adoc[]
+include::content/partials/node-js-event-loop.adoc[]
+<<<
+include::content/partials/handson/node-js-sync-async.adoc[]
 
 <<<
-include::content/partials/nodejs-modules.adoc[]
+include::content/partials/node-js-modules.adoc[]
 
 <<<
 include::license.adoc[]
