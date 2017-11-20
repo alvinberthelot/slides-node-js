@@ -1,188 +1,83 @@
-
-=== Installer un module via npm
-
-Dans une invite de commandes, l'instruction +npm install+ permet d'installer un module. Il existe 2 manières d'installer un module, soit de manière locale au projet (option par défaut), soit de manière globale (avec l'option +-g+).
-
-```shell
-
-// local
-npm install <module_name>
-
-// global
-npm install -g <module_name>
-
-```
-
-Dans le premier cas, le module sera installé depuis le répertoire courant où l'instruction a été lancée. Il ne sera donc accessible que depuis ce répertoire courant.
-
-Dans le deuxième cas, le module sera installé dans un répertoire commun lié à l'installation de Node. Il sera donc accessible depuis n'importe quel répertoire de l'environnement.
+== Utilisation des modules
 
 <<<
 
-=== Installer tous les modules
+=== Le "scope" global
 
-Lors d'installations locales de modules, npm va rapatrier ceux-ci dans un répertoire +node_modules+.
+*_Rappel_* +
+JavaScript dispose d'un "scope" global, il s'agit d'un +object+ disposant déjà d'un certain nombre de propriétés et de méthodes.
 
-Pour installer au pré-requis tous les modules nécessaires au bon fonctionnement d'un projet, npm va s'appuyer sur le fichier +package.json+ qui liste les dépendances (et leurs versions associées) avec +dependencies+, +devDependencies+, +optionnalDependencies+ et +peerDependencies+.
+*_Dans un navigateur_* +
+```js
+console.log(window);
+console.log(this);
+```
 
-Il suffit ensuite d'executer +npm install+ dans le répertoire où se situe le fichier +package.json+ pour installer toutes les dépendances listées dans le répertoire +node_modules+.
+C'est également vrai pour Node.js qui a un "scope" global se nommant +global+.
 
-```shell
-
-npm install
-
+*_Dans Node.js_* +
+```js
+console.log(global);
+console.log(this);
 ```
 
 <<<
 
-=== Le fichier +package.json+
+=== Modules en JavaScript
 
-Le fichier +package.json+ est le point d'entrée de tout projet/module devant s'exécuter dans Node.js, il contient principalement :
-
-- Les informations relatives au projet : +name+, +description+, +version+, +license+, +contributors+, etc.
-
-- Les dépendances : +dependencies+, +devDependencies+, +optionnalDependencies+ et +peerDependencies+.
-
-- Les exécutions possibles avec +scripts+.
-
-- Les contraintes de compatibilité Node.js avec +engines+.
-
-Il existe beaucoup d'autres informations que l'on peut renseigner dans ce fichier, https://docs.npmjs.com/files/package.json[la documentation officielle] exhaustive à ce sujet.
-
-<<<
-
-=== Un exemple de +package.json+
+Dans Node.js (comme dans un navigateur) il faut limiter l'utilisation du "scope" global pour éviter les risques de collision et optimiser l'usage de la mémoire.
 
 ```js
-
-{
-  "name": "colourfull-api",
-  "version": "1.0.5",
-  "description": "Web API to deliver palettes of colours.",
-  "dependencies": {
-    "body-parser": "1.5.2",
-    "cors": "2.8.1",
-    "express": "4.2.0"
-  },
-  "devDependencies": {
-    "expect.js": "0.3.1",
-    "mocha": "1.21.0",
-    "superagent": "0.18.2"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "test": "mocha --timeout 15000 test/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/my-company/colourfull-api"
-  },
-  "license": "MIT license"
-}
-
+console.log(global.newSideEffect);
+newSideEffect = 42;
+console.log(global.newSideEffect);
 ```
+
+*_Rappel_* +
+Le fonctionnement des "closures" et des IIFE permettent l'exposition publique vs privée de propriétés d'un objet.
+
+Sur le même principe d'isolement de "scope" que les IIFE, Node.js dispose d'un système de modules natif qui permet de limiter la portée des "scopes" tout en laissant la possibilité d'exporter des états, des fonctions, etc.
+
+Il s'avère qu'il existe plusieurs système de modules, Node.js a commencé avec (et peut toujours utiliser) la syntaxe CommonJS.
 
 <<<
 
-=== Enrichir un fichier +package.json+
+=== CommonJS
 
-TIP: La commande +npm init+ permet de générer facilement un fichier +package.son+.
+http://www.commonjs.org/[CommonJS] peut être perçu comme une API pour normaliser et simplifier l'utilisation de modules dans les environnements JavaScript. Elle est implémentée par défaut au sein de Node.js.
 
-Une fois le fichier +package.json+ créé il conviendra de le mettre à jour régulièrement, notamment sur les dépendances nécessaires au projet. Des options sont disponibles en ce sens.
-
-```shell
-
-// depencies
-npm install --save <module_name>
-
-// devDepencies
-npm install --save-dev <module_name>
-
-// optionnalDepencies
-npm install --save-optionnal <module_name>
-
-```
-
-<<<
-
-=== (Bien) enrichir un fichier +package.json+
-
-Par défaut les commandes +npm install+ ne gèlent pas les dépendances de manière stricte, mais en utilisant +^version+ qui correspond à "Compatible with version" (cf. https://docs.npmjs.com/files/package.json[documentation officielle]).
+On peut ainsi facilement exporter depuis un autre fichier un +object+ pouvant contenir des valeurs en JavaScript avec le mot clé +exports+.
 
 ```js
-
-// package.json
-...
-  "dependencies": {
-    "express": "^4.14.0"
-  }
-...
-
+// mathTools.js
+exports.add = (a, b) => a + b;
 ```
 
-Honnêtement mieux vaut se passer de ce fonctionnement par défaut et geler strictement toutes les dépendances.
+Puis importer cette valeur depuis le fichier avec le mot clé +require+.
 
-C'est posible facilement avec l'option supplémentaire +--save-exact+.
-
-```shell
-
-npm install --save --save-exact <module_name>
-
+```js
+// program.js
+require('./mathTools').add(4, 7); // 11
 ```
+NOTE: L'extension du fichier ".js" est facultative pour les imports.
 
 <<<
 
-=== Utiliser un module
+=== Modules présents par défaut
 
-L'utilisation des modules dans Node.js se fait via https://nodejs.org/docs/latest/api/modules.html[CommonJS]. L'import de modules est réalisé avec la commande +require+, il est ainsi possible d'utiliser les modules récupérés de npm, tout comme ses propres modules.
+Certains modules sont présents nativement au sein de Node.js, les principaux étant :
+
+- https://nodejs.org/api/fs.html[fs] : Module "File System" pour créer / modifier / supprimer des fichiers
+- https://nodejs.org/api/net.html[net] : Module pour utiliser les protocoles TCP ou IPC
+- https://nodejs.org/api/http.html[http] : Module pour utiliser le protocole HTTP
+- https://nodejs.org/api/path.html[path] : Module pour travailler sur les chemins des fichiers / répertoires
+- https://nodejs.org/api/events.html[events] : Module pour appliquer la programmation évenementielle
 
 ```js
+const http = require('http')
 
-// modules from npm
-var express = require('express');
-var cors = require('cors');
-var bodyParser = require('body-parser');
-
-// custom modules
-var routes = require('./routes/index');
-
-var app = express();
-
-...
-
-// URL mapping
-app.use('/', routes);
-
-app.listen(3000, function () {
-  console.log('Server started on port 3000')
+http.get('http://numbersapi.com/42', (res) => {
+  res.setEncoding('utf8')
+  res.on('data', fact => console.log(fact))
 });
-
 ```
-
-<<<
-
-=== Gèrer les modules
-
-La gestion des modules est une tâche importante pour s'assurer qu'un projet sera opérationnel.
-
-Il ne suffit pas de voir fonctionner un projet sur son environnement local.
-
-Plusieurs commandes npm nous aide en ce sens.
-
-```shell
-
-// Supprime les modules locaux non déclarés dans package.json
-npm prune
-
-// Référencement des modules qui devraient être installés ou mis à jour
-npm outdated
-
-// Mise à jour des modules
-npm update
-
-```
-
-
-
-
-

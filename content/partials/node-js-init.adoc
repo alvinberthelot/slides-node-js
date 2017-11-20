@@ -39,15 +39,3 @@ image::content/img/nodejs_architecture.png[width=100%, scaledwidth=75%, align=ce
 Initialement l'entreprise https://www.joyent.com/[Joyent] après avoir embauché Ryan Dahl le créateur de Node.js.
 
 L'éco-sytème Node.js est désormais porté depuis 2015 par la fondation non-commerciale https://nodejs.org/en/foundation/[Node.js Foundation].
-
-<<<
-
-=== npm le compagnon associé
-
-image::content/img/npm.svg[width=100%, scaledwidth=25%, align=center]
-
-Une fois https://nodejs.org[Node.js] installé, celui-ci ne vient pas seul, il inclut par défaut https://www.npmjs.com/[npm] qui est son *gestionnaire de modules*.
-
-Ce gestionnaire de modules permet d'installer et de publier facilement des modules (signifiant "package" en JavaScript) pour Node.js : serveurs HTTP, frameworks, drivers, processeurs, etc.
-
-npm est à la fois (lui même) un module dédié pour Node.js et le registre de modules accessible via Internet. Sa popularité et son fonctionnement avec Node.js en ont fait le registre pour tout l'écosystème JavaScript désormais.

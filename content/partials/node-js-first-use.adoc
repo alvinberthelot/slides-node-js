@@ -16,11 +16,7 @@ Ensuite il convient de vérifier la bonne installation.
 
 ```shell
 
-// Node
 node -v
-
-// npm
-npm -v
 
 ```
 

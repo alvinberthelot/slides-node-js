@@ -1,0 +1,52 @@
+=== Les "hooks"
+
+Mocha permet l'utilisation de "hooks" avec les fonctions +before()+, +after()+, +beforeEach()+ et +afterEach()+ pour effectuer des traitements avant l'exécution de tests.
+
+```js
+
+describe('API tests GET products', function() {
+
+  var app = require('../app.js');
+  var instance;
+
+  beforeEach(function() { instance = app.listen(3000); });
+  afterEach(function() { instance.close(); });
+
+  it('should return 200 and all the products', function() {
+    superagent.get('http://localhost:3000/api/products').end(function(e, res) {
+      expect(res.status).to.eql(200);
+      expect(res.body.data).to.have.lengthOf(23);
+    });
+  });
+
+  ...
+
+});
+
+```
+
+
+
+
+
+<<<
+
+=== Écriture des tests asynchrones
+
+```js
+// file test/hello.test.js
+
+var expect = require('chai').expect;
+
+describe('GIVEN an square ', function() {
+  it('WHEN the client request surfacewith a known id THEN the status response expected is 200', function() {
+    expect(true).to.be.true;
+  })
+  it('WHEN the client request with an unknown id THEN the status response expected is 404', function() {
+    expect(true).to.be.true;
+  })
+});
+```
+
+
+<<<

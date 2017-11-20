@@ -1,3 +1,44 @@
 == "Event loop" de Node.js
 
 <<<
+
+=== JavaScript un langage "Single thread"
+
+JavaScript est un langage de programmation qui exécute des opérations selon un fonctionnment "Single thread", cela signifie qu'un seul et unique processus est instancié pour réaliser l'ensemble des opérations.
+
+//TODO SCHEMA
+
+A contrario, les langages Java et C sont des langages de programmation "Multi thread", cela signifie que plusieurs processus sont instanciés pour réaliser l'ensemble des opérations.
+
+//TODO SCHEMA
+
+<<<
+
+=== "Blocking" Vs "Non-Blocking"
+
+A priori le fonctionnement du langage JavaScript semble moins performant car il permet de réaliser moins d'opérations dans un même laps de temps du fait qu'un seul processus soit en mesure de les réaliser.
+
+Ce raisonnement n'est vrai que si les opérations à effectuer sont "bloquantes" (Blocking) c'est à dire que l'on attend systématiquement que les opérations soient indiquées comme terminées afin d'en lancer une nouvelle.
+
+Or JavaScript gère la concurrence des opérations grâce à une "boucle d'événements" qui est "non bloquantes" (Non-Blocking) ; c'est à dire qu'elle lance des opérations les unes à la suite des autres sans pour autant attendre qu'elles soient indiquées comme terminées.
+
+Le résultat d'une opération peut-être récupéré selon un fonctionnement de callback et le traitement de ce résultat est lui même ajouté à la "boucle d'événements".
+
+<<<
+
+//=== Schéma "Non-Blocking"
+
+//TODO SCHEMA
+
+//<<<
+
+//=== Exemple "Non-Blocking"
+
+//TODO SCHEMA
+
+//<<<
+
+=== "Blocking" Vs "Non-Blocking"
+
+D'une certaine manière le moteur JavaScript délègue les traitements ; qui ne sont pas de sa responsabilité ; à d'autres processus et récupère le résultat des traitements lorsque ceux-ci sont disponibles.
+

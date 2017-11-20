@@ -1,0 +1,156 @@
+== Fonctionnement basique de Mocha
+
+<<<
+
+=== Définition de Mocha
+
+https://mochajs.org[Mocha] est une librairie pouvant executer des tests ("test runner") à la fois dans un environnement Node.js et dans un navigateur web.
+
+Elle permet de réaliser des tests synchrones et asynchrones.
+
+Elle ne dispose pas de librairie d'assertions par défaut.
+
+<<<
+
+=== Installation de Mocha
+
+La librairie Mocha est généralement executée via un environemment https://nodejs.org[Node.js], elle est donc installée comme un module npm.
+
+Soit de manière globale.
+
+```shell
+npm install --global mocha
+```
+
+Soit de manière locale.
+
+```shell
+npm install --save-dev mocha
+```
+
+<<<
+
+=== Installation d'une librairie d'assertions
+
+La librairie Mocha n'inclut pas de librairie d'assertions par défaut. Si il est possible d'utiliser https://nodejs.org/api/assert.html[la librairie d'assertion par défaut de Node.js], il est généralement conseillé d'en installer une plus complète :
+
+- http://chaijs.com/[Chai].
+
+- https://github.com/shouldjs/should.js[should.js].
+
+- https://github.com/LearnBoost/expect.js[expect.js].
+
+NOTE: http://chaijs.com/[Chai] étant la plus complète, c'est celle-ci que l'on retiendra pour la suite.
+
+<<<
+
+=== Installation de Chai
+
+La librairie Chai est executée sur le même environnement que Mocha donc via un environemment https://nodejs.org[Node.js], elle est donc installée comme un module npm.
+
+Soit de manière globale.
+
+```shell
+npm install --global chai
+```
+
+Soit de manière locale.
+
+```shell
+npm install --save-dev chai
+```
+
+<<<
+
+=== Utilisation de Mocha et Chai
+
+Une fois les librairies Mocha et Chai accessibles, il convient d'écrire les tests appropriés.
+
+```js
+// file test/hello.test.js
+
+var expect = require('chai').expect;
+
+describe('Hello world testing !', function() {
+  it('should be true', function() {
+    expect(true).to.be.true;
+  })
+});
+```
+
+Pour ensuite pouvoir les lancer.
+
+```shell
+mocha test/hello.test.js
+```
+
+<<<
+
+=== Écriture des tests avec Mocha
+
+Les tests seront regroupés logiquement avec la fonction +describe()+ et chaque test sera executé avec la fonction +it()+. Tous ayant un libellé.
+
+```js
+// file test/hello.test.js
+
+var expect = require('chai').expect;
+
+describe('GIVEN a list of 4 colours: white, blue, green, red', function() {
+  var colours = ['white', 'blue', 'green', 'red'];
+  it('WHEN the client request the list THEN 4 items are returned', function() {
+    expect(colours.length).to.equal(4);
+  })
+  it('WHEN the client request the second item THEN the item expected is blue', function() {
+    expect(colours[1]).to.equal('blue');
+  })
+});
+```
+
+NOTE: Il est possible d'avoir plusieurs niveaux de regroupement avec +describe()+.
+
+<<<
+
+=== Se faciliter l'écriture des tests avec Mocha
+
+Il n'est pas toujours aisé d'écrire des tests et de les lancer si de nombreux tests existent déjà. Cela peut être long et contraignant.
+
+Pour palier cela, Mocha propose les fonctions +skip()+ et +only()+ qui permettent respectivement de ne pas exécuter les tests mentionnés ou à l'inverse de n'exécuter que ceux mentionnés.
+
+```js
+describe('GIVEN a list of 4 colours: white, blue, green, red', function() {
+  var colours = ['white', 'blue', 'green', 'red'];
+  it.skip('WHEN the client request the list THEN 4 items are returned', function() {
+    expect(colours.length).to.equal(4);
+  });
+  it('WHEN the client request the second item THEN the item expected is blue', function() {
+    expect(colours[1]).to.equal('blue');
+  });
+});
+```
+
+<<<
+
+=== Fonctionnement de Chai
+
+Il existe 3 syntaxes d'assertions disponibles avec Chai : Assert, Expect, Should.
+
+```js
+var assert = require('chai').assert;
+var expect = require('chai').expect;
+var should = require('chai').should();
+
+// Assert
+it('WHEN the client request the list THEN 4 items are returned', function() {
+  assert.lengthOf(colours, 4);
+})
+// Expect
+it('WHEN the client request the list THEN 4 items are returned', function() {
+  expect(colours).to.have.lengthOf(4);
+})
+// Should
+it('WHEN the client request the list THEN 4 items are returned', function() {
+  colours.should.have.lengthOf(4);
+})
+```
+
+Ces 3 syntaxes réalisent les mêmes traitements, c'est uniquement la manière de les exprimer qui diffère. Expect et Should prônant une http://chaijs.com/api/bdd/[approche BDD], plus fluide car s'apparentant à un langage naturel.

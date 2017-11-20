@@ -30,15 +30,25 @@ include::content/partials/node-js-init.adoc[]
 include::content/partials/node-js-first-use.adoc[]
 
 <<<
-include::content/partials/handson/node-js-basics.adoc[]
+include::content/partials/handson/node-js-init-first-use.adoc[]
 
 <<<
 include::content/partials/node-js-event-loop.adoc[]
+
 <<<
-include::content/partials/handson/node-js-sync-async.adoc[]
+include::content/partials/handson/node-js-event-loop.adoc[]
 
 <<<
 include::content/partials/node-js-modules.adoc[]
+
+<<<
+include::content/partials/handson/node-js-modules.adoc[]
+
+<<<
+include::content/partials/node-js-npm.adoc[]
+
+<<<
+include::content/partials/handson/node-js-npm.adoc[]
 
 <<<
 include::license.adoc[]
