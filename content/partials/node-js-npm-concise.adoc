@@ -1,0 +1,96 @@
+== Petit rappel npm
+
+<<<
+
+=== npm le compagnon associé de Node.js
+
+image::content/img/npm.svg[width=100%, scaledwidth=25%, align=center]
+
+Une fois https://nodejs.org[Node.js] installé, celui-ci ne vient pas seul, il inclut par défaut https://www.npmjs.com/[npm] qui est son *gestionnaire de modules*.
+
+```shell
+
+npm -v
+
+```
+
+Ce gestionnaire de modules permet d'installer et de publier facilement des modules (signifiant "package" en JavaScript) pour Node.js : serveurs HTTP, frameworks, drivers, processeurs, etc.
+
+<<<
+
+=== npm un gestionnaire ET un dépôt de modules
+
+npm est à la fois lui même un module dédié pour Node.js (servant de gestionnaire) et le registre de modules accessible via Internet.
+
+Sa popularité et son fonctionnement avec Node.js en ont fait le registre pour tout l'écosystème JavaScript désormais.
+
+//SCHEMA
+
+<<<
+
+=== Installer un module via npm
+
+Dans une invite de commandes, l'instruction +npm install+ permet d'installer un module. Il existe 2 manières d'installer un module, soit de manière locale au projet (option par défaut), soit de manière globale (avec l'option +-g+).
+
+```shell
+
+// local
+npm install <module_name>
+
+// global
+npm install -g <module_name>
+
+```
+
+Dans le premier cas, le module sera installé depuis le répertoire courant où l'instruction a été lancée. Il ne sera donc accessible que depuis ce répertoire courant.
+
+Dans le deuxième cas, le module sera installé dans un répertoire commun lié à l'installation de Node. Il sera donc accessible depuis n'importe quel répertoire de l'environnement.
+
+<<<
+
+=== Installer tous les modules
+
+Lors d'installations locales de modules, npm va rapatrier ceux-ci dans un répertoire +node_modules+.
+
+Pour installer au pré-requis tous les modules nécessaires au bon fonctionnement d'un projet, npm va s'appuyer sur le fichier +package.json+ qui liste les dépendances (et leurs versions associées) avec +dependencies+, +devDependencies+, +optionnalDependencies+ et +peerDependencies+.
+
+Il suffit ensuite d'executer +npm install+ dans le répertoire où se situe le fichier +package.json+ pour installer toutes les dépendances listées dans le répertoire +node_modules+.
+
+```shell
+
+npm install
+
+```
+
+<<<
+
+=== Un exemple de +package.json+
+
+```js
+
+{
+  "name": "colourfull-api",
+  "version": "1.0.5",
+  "description": "Web API to deliver palettes of colours.",
+  "dependencies": {
+    "body-parser": "1.5.2",
+    "cors": "2.8.1",
+    "express": "4.2.0"
+  },
+  "devDependencies": {
+    "expect.js": "0.3.1",
+    "mocha": "1.21.0",
+    "superagent": "0.18.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --timeout 15000 test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/my-company/colourfull-api"
+  },
+  "license": "MIT license"
+}
+
+```

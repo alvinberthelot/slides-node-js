@@ -1,0 +1,90 @@
+== Verdaccio
+
+<<<
+
+=== Fonctionnement de Verdaccio
+
+image::content/img/schema.png[width=100%, scaledwidth=100%, align=center]
+
+<<<
+
+=== Installation de Verdaccio
+
+Solution 1 : Installer http://www.verdaccio.org/[Verdaccio] en globale sur un serveur où Node.js est installé.
+
+```shell
+
+npm install -g verdaccio
+
+```
+
+Solution 2 : Utiliser Docker avec une https://github.com/verdaccio/verdaccio/blob/master/wiki/docker.md[image Verdaccio]
+
+```shell
+
+docker pull verdaccio/verdaccio
+
+```
+
+WARNING: Les histoires de proxy finissent toujours bien en général ...
+
+<<<
+
+=== Configuration du dépôt de dépendances
+
+Monter un dépôt de dépendances c'est bien, encore faut-il que les ressources qui en ont besoin pointent sur ce dépôt.
+
+```shell
+
+npm config ls
+
+npm set registry http://localhost:4873
+
+npm config ls
+
+```
+
+Par ressources on entend les *développeurs* mais il faut aussi penser aux *environnements d'intégration continue*.
+
+<<<
+
+=== Récupération des dépendances publiques
+
+C'est là qu'une partie de la magie s'opère, c'est absolument transparent !
+
+```shell
+
+npm install
+
+```
+
+Que les dépendances soient *publiques* ou *privées*.
+
+Bon pour les privées, encore faut-il *les avoir publiées* (sur le bon dépôt tant qu'à faire).
+
+```shell
+
+npm publish --registry http://localhost:4873
+
+```
+
+WARNING: Cela nécessite l'enregistrement d'un utilisateur au préalable.
+
+<<<
+
+== Les minutes Bonaldi
+
+<<<
+
+== Bilan
+
+L'intérêt d'utiliser Verdaccio peut-être multiple :
+
+- Se couper (partiellement) de la dépendance du dépôt npm
+- Publier facilement des dépendances privées
+- Corriger rapidement une dépendance publique
+- Servir de cache++ lorsqu'on développe en offline
+
+Ce que j'aime, c'est que c'est *simple* à comprendre, à mettre en place et à utiliser.
+
+*L'adhérence à Verdaccio est quasi inexistante*, sur les dépendances c'est une autre histoire ;)
