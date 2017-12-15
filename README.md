@@ -7,6 +7,10 @@ L'apprentissage est découpé en plusieurs sections qu'il convient de parcourir 
 1. Node.js ([Fichier node-js-v1.0.0.pdf](https://github.com/alvinberthelot/slides-node-js/blob/master/node-js-v1.0.0.pdf))
 2. Mocha ([Fichier node-js-mocha-v1.0.0.pdf](https://github.com/alvinberthelot/slides-node-js/blob/master/node-js-mocha-v1.0.0.pdf))
 
+Bonus
+
+Verdaccio ([Fichier node-js-verdaccio-v1.0.0.pdf](https://github.com/alvinberthelot/slides-node-js/blob/master/node-js-verdaccio-v1.0.0.pdf))
+
 
 ## Licence
 
