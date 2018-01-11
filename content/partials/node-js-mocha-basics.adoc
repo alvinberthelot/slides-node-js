@@ -4,7 +4,7 @@
 
 === Définition de Mocha
 
-https://mochajs.org[Mocha] est une librairie pouvant executer des tests ("test runner") à la fois dans un environnement Node.js et dans un navigateur web.
+https://mochajs.org[Mocha] est une librairie pouvant exécuter des tests ("test runner") à la fois dans un environnement Node.js et dans un navigateur web.
 
 Elle permet de réaliser des tests synchrones et asynchrones.
 
@@ -14,7 +14,7 @@ Elle ne dispose pas de librairie d'assertions par défaut.
 
 === Installation de Mocha
 
-La librairie Mocha est généralement executée via un environemment https://nodejs.org[Node.js], elle est donc installée comme un module npm.
+La librairie Mocha est généralement exécutée via un environemment https://nodejs.org[Node.js], elle est donc installée comme un module npm.
 
 Soit de manière globale.
 
@@ -46,7 +46,7 @@ NOTE: http://chaijs.com/[Chai] étant la plus complète, c'est celle-ci que l'on
 
 === Installation de Chai
 
-La librairie Chai est executée sur le même environnement que Mocha donc via un environemment https://nodejs.org[Node.js], elle est donc installée comme un module npm.
+La librairie Chai est exécutée sur le même environnement que Mocha donc via un environnement https://nodejs.org[Node.js], elle est donc installée comme un module npm.
 
 Soit de manière globale.
 
@@ -88,7 +88,7 @@ mocha test/hello.test.js
 
 === Écriture des tests avec Mocha
 
-Les tests seront regroupés logiquement avec la fonction +describe()+ et chaque test sera executé avec la fonction +it()+. Tous ayant un libellé.
+Les tests seront regroupés logiquement avec la fonction +describe()+ et chaque test sera exécuté avec la fonction +it()+. Tous ayant un libellé.
 
 ```js
 // file test/hello.test.js

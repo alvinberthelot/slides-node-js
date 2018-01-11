@@ -54,7 +54,7 @@ Lors d'installations locales de modules, npm va rapatrier ceux-ci dans un réper
 
 Pour installer au pré-requis tous les modules nécessaires au bon fonctionnement d'un projet, npm va s'appuyer sur le fichier +package.json+ qui liste les dépendances (et leurs versions associées) avec +dependencies+, +devDependencies+, +optionnalDependencies+ et +peerDependencies+.
 
-Il suffit ensuite d'executer +npm install+ dans le répertoire où se situe le fichier +package.json+ pour installer toutes les dépendances listées dans le répertoire +node_modules+.
+Il suffit ensuite d’exécuter +npm install+ dans le répertoire où se situe le fichier +package.json+ pour installer toutes les dépendances listées dans le répertoire +node_modules+.
 
 ```shell
 

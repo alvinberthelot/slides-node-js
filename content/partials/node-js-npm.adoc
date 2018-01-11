@@ -115,19 +115,19 @@ Il existe beaucoup d'autres informations que l'on peut renseigner dans ce fichie
 
 === Enrichir un fichier +package.json+
 
-TIP: La commande +npm init+ permet de générer facilement un fichier +package.son+.
+TIP: La commande +npm init+ permet de générer facilement un fichier +package.json+.
 
 Une fois le fichier +package.json+ créé il conviendra de le mettre à jour régulièrement, notamment sur les dépendances nécessaires au projet. Des options sont disponibles en ce sens.
 
 ```shell
 
-// depencies
+// dependencies
 npm install --save <module_name>
 
-// devDepencies
+// devDependencies
 npm install --save-dev <module_name>
 
-// optionnalDepencies
+// optionnalDependencies
 npm install --save-optionnal <module_name>
 
 ```
@@ -151,7 +151,7 @@ Par défaut les commandes +npm install+ ne gèlent pas les dépendances de mani�
 
 Honnêtement mieux vaut se passer de ce fonctionnement par défaut et geler strictement toutes les dépendances.
 
-C'est posible facilement avec l'option supplémentaire +--save-exact+.
+C'est possible facilement avec l'option supplémentaire +--save-exact+.
 
 ```shell
 
@@ -190,13 +190,13 @@ app.listen(3000, function () {
 
 <<<
 
-=== Gèrer les modules
+=== Gérer les modules
 
 La gestion des modules est une tâche importante pour s'assurer qu'un projet sera opérationnel.
 
 Il ne suffit pas de voir fonctionner un projet sur son environnement local.
 
-Plusieurs commandes npm nous aide en ce sens.
+Plusieurs commandes npm nous aident en ce sens.
 
 ```shell
 
@@ -210,8 +210,3 @@ npm outdated
 npm update
 
 ```
-
-
-
-
-
