@@ -6,7 +6,7 @@
 
 image::content/img/nodejs_logo.png[width=100%, scaledwidth=35%, align=center]
 
-https://nodejs.org[Node.js] est une plateforme disposant d'une API JavaScript pouvant s'executer sur de nombreux environnements.
+https://nodejs.org[Node.js] est une plateforme disposant d'une API JavaScript pouvant s’exécuter sur de nombreux environnements.
 
 De ce fait il est possible d'exécuter du code JavaScript non plus uniquement dans un navigateur web (front-end) comme nous avions l'habitude, mais également côté serveur (back-end).
 
@@ -16,7 +16,7 @@ On résume généralement Node.js à un serveur back-end JavaScript, c'est assez
 
 === Node.js, pourquoi ?
 
-https://nodejs.org[Node.js] est capable d'accéder aux ressources système ainsi qu'aux connexions réseau de l'environnement dans lequel il s'execute. En clair, une fois installé sur un environnement il est capable de faire beaucoup de choses :
+https://nodejs.org[Node.js] est capable d'accéder aux ressources système ainsi qu'aux connexions réseau de l'environnement dans lequel il s’exécute. En clair, une fois installé sur un environnement il est capable de faire beaucoup de choses :
 
 - Créer un serveur HTTP.
 

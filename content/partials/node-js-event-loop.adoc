@@ -4,7 +4,7 @@
 
 === JavaScript un langage "Single thread"
 
-JavaScript est un langage de programmation qui exécute des opérations selon un fonctionnment "Single thread", cela signifie qu'un seul et unique processus est instancié pour réaliser l'ensemble des opérations.
+JavaScript est un langage de programmation qui exécute des opérations selon un fonctionnement "Single thread", cela signifie qu'un seul et unique processus est instancié pour réaliser l'ensemble des opérations.
 
 //TODO SCHEMA
 
@@ -41,4 +41,3 @@ Le résultat d'une opération peut-être récupéré selon un fonctionnement de 
 === "Blocking" Vs "Non-Blocking"
 
 D'une certaine manière le moteur JavaScript délègue les traitements ; qui ne sont pas de sa responsabilité ; à d'autres processus et récupère le résultat des traitements lorsque ceux-ci sont disponibles.
-

@@ -71,7 +71,7 @@ Certains modules sont présents nativement au sein de Node.js, les principaux é
 - https://nodejs.org/api/net.html[net] : Module pour utiliser les protocoles TCP ou IPC
 - https://nodejs.org/api/http.html[http] : Module pour utiliser le protocole HTTP
 - https://nodejs.org/api/path.html[path] : Module pour travailler sur les chemins des fichiers / répertoires
-- https://nodejs.org/api/events.html[events] : Module pour appliquer la programmation évenementielle
+- https://nodejs.org/api/events.html[events] : Module pour appliquer la programmation événementielle
 
 ```js
 const http = require('http')

@@ -196,7 +196,7 @@ La gestion des modules est une tâche importante pour s'assurer qu'un projet ser
 
 Il ne suffit pas de voir fonctionner un projet sur son environnement local.
 
-Plusieurs commandes npm nous aide en ce sens.
+Plusieurs commandes npm nous aident en ce sens.
 
 ```shell
 

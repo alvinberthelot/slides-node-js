@@ -11,13 +11,13 @@ Il a toutefois quelques limites sur le dépôt npm :
 - Il n’est reproductible que *si le dépôt npm est opérationnel* pour fournir les dépendances.
 - Ce fonctionnement ne permet pas l’ajout de dépendances JavaScript à titre privé (excepté avec un *compte payant*).
 
-En bref, vous êtes dépendant du dépot de dépendances.
+En bref, vous êtes dépendant du dépôt de dépendances.
 
 <<<
 
 === Alternative #1
 
-Une première approche pourraît être d'incorporer les dépendances comme des sources dans le gestionnaire de version du projet.
+Une première approche pourrait être d'incorporer les dépendances comme des sources dans le gestionnaire de version du projet.
 
 image::content/img/meme-faces/meme-face-unhappy.png[width=100%, scaledwidth=30%, align=center]
 
@@ -27,7 +27,7 @@ La distinction entre sources et dépendances est primordiale. Elles n'ont pas le
 
 === Alternative #2
 
-Une deuxième approche pourraît être d'incorporer chaque dépendance comme un projet à part entière dans un gestionnaire de version.
+Une deuxième approche pourrait être d'incorporer chaque dépendance comme un projet à part entière dans un gestionnaire de version.
 
 image::content/img/meme-faces/meme-face-questionning.png[width=100%, scaledwidth=30%, align=center]
 
@@ -37,7 +37,7 @@ Toujours un problème concernant les dépendances publiques, dans le sens où el
 
 === Alternative #3
 
-Une troisième approche pourraît être de créer sa propre instance de npm sur un serveur dédié.
+Une troisième approche pourrait être de créer sa propre instance de npm sur un serveur dédié.
 
 image::content/img/meme-faces/meme-face-horror.png[width=100%, scaledwidth=30%, align=center]
 
